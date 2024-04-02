@@ -105,6 +105,7 @@ export function Produto() {
                   <Imagem src={ImagemError} alt="img_produto_ERROR" />
                 )}
               </Slide>
+              
 
               <Info>
                 <ComponenteDescricaoProd>
