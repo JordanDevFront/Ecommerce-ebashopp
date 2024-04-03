@@ -69,12 +69,12 @@ export function Header() {
                     className="font-size"
                     onClick={() => setModalVisible(!modalVisible)}
                   />
-                  <span>5</span>
+                  <span>2</span>
                 </Fav>
               )}
               <Cart href="/Carrinho">
                 <CiShoppingCart className="font-size" />
-                <span>8</span>
+                <span>2</span>
               </Cart>
               {nomeUser === "" || nomeUser === null ? (
                 <>
