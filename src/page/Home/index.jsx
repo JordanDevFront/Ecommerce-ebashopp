@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import { Container, Card, ContainerImage, ConatinerInfo, Img, Col, Titulo, Preco, PrecoDesc, PrecoParcela, Frete, AddCarrinho, ListProduct } from "./style";
-import imageProd from "../../imagens/imageProd.jpg"
-import { CiDeliveryTruck, CiShoppingCart  } from "react-icons/ci";
+import { Container} from "./style";
 import axios from "axios";
 import { Bnner } from "../../componentes/BannerMain";
 import { Search } from "../../componentes/Pesquisar";
 import { Produto } from "../../componentes/Produto";
+
+import images from "../../data/images";
 
 
 function Home() {
@@ -39,7 +39,11 @@ function Home() {
   return (
     <>
       <Container>
-        <Bnner />
+        <Bnner>
+          {images.map((image, index) => {
+            return <img key={index} src={image.imgURL} alt={image.imgAlt} />;
+          })}
+        </Bnner>
         <Search />
 
         <Produto />
