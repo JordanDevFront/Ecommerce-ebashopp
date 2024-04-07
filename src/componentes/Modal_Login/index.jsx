@@ -1,51 +1,80 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Col, Input, MsgError } from "./style";
+import InputMask from 'react-input-mask';
+import CryptoJS from "crypto-js";
 
 export function ModalLogin() {
   const [arrayUsers, setArrayUsers] = useState([
-    { id: 1, user: "Jordan", senha: "teste" },
+    { id: 1, cpf: "44740347830", nome: "Henrique", senha: "teste" },
   ]);
-
-  const [userName, setUserName] = useState("");
-  const [senhaUser, setSenhaUser] = useState("");
-  const [mensagemError, setMensageError] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [nome, setNome] = useState("");
+  const [senha, setSenha] = useState("");
+  const [encryptedCpf, setEncryptedCpf] = useState("");
+  const [token, setToken] = useState("ainda vou gerar o token no back-end");
+  const [auth, setAuth] = useState(true);
+  const [mensagemError, setMensagemError] = useState("");
   const [loading, setLoading] = useState("Entrar");
 
-  useEffect(()=>{
-    
-  },[])
+  const CHAVE_KEY = "Fg@A~t34#";
+
+  useEffect(() => {
+    // Aqui você pode adicionar lógica para verificar a autenticação do usuário
+  }, []);
+
+  const cpfIsValid = (cpf) => {
+    return cpf.length === 11;
+  };
 
   const Logar = () => {
     const userExists = arrayUsers.some(
-      (user) => user.user === userName && user.senha === senhaUser
+      (user) => user.cpf === cpf && user.senha === senha
     );
+
+    if (!cpfIsValid(cpf)) {
+      alert("CPF inválido");
+      return;
+    }
+
     if (userExists) {
-      setLoading("Carregando...")
-      localStorage.setItem("loggedInUser", userName);
+      setLoading("Carregando...");
+      // Criptografa o CPF antes de armazenar
+      const encrypted = CryptoJS.AES.encrypt(cpf, CHAVE_KEY).toString();
+      setEncryptedCpf(encrypted);
+
+      const user = arrayUsers.find((user) => user.cpf === cpf);
+      localStorage.setItem("documento", encrypted);
+      localStorage.setItem("auth", auth);
+      localStorage.setItem("token", token);
+      localStorage.setItem("usuario", user.nome);
       setTimeout(() => {
         window.location = "/";
-      }, "5000");
+      }, 5000);
     } else {
-      setMensageError("Usuário ou senha inválidos.");
+      setMensagemError("Usuário ou senha inválidos.");
     }
   };
 
-  const handleChangeUserName = (event) => {
-    setUserName(event.target.value);
+  const handleChangeUserCPF = (event) => {
+    // Remove os caracteres do CPF
+    const cpfFormatted = event.target.value.replace(/\D/g, '');
+    setCpf(cpfFormatted);
   };
 
-  const handleChangeSenhaUser = (event) => {
-    setSenhaUser(event.target.value);
+  const handleChangeUserSenha = (event) => {
+    setSenha(event.target.value);
   };
 
   return (
     <Modal>
       <Col>
-        <Input
+        <InputMask 
+          mask="999.999.999-99"
           type="text"
           placeholder="Usuário"
-          value={userName}
-          onChange={handleChangeUserName}
+          value={cpf}
+          onChange={handleChangeUserCPF}
+          id="InputCPF"
         />
       </Col>
 
@@ -53,8 +82,8 @@ export function ModalLogin() {
         <Input
           type="password"
           placeholder="Senha"
-          value={senhaUser}
-          onChange={handleChangeSenhaUser}
+          value={senha}
+          onChange={handleChangeUserSenha}
         />
         <MsgError>
           <span>{mensagemError}</span>

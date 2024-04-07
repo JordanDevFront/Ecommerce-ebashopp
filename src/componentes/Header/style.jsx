@@ -30,10 +30,10 @@ export const Info = styled.div`
   /**  top: 20px;*/
   z-index: 2;
 
-  background: #ffffffd1;
+  /**background: #ffffffd1;*/
   border-radius: 50px;
   padding: 10px 20px;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  /**box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;*/
 `;
 export const Cart = styled.a`
   width: 40px;
@@ -124,7 +124,7 @@ export const BtnCriar = styled.div`
 export const NomeUser = styled.div`
   label {
     position: relative;
-    top: 20px;
+    top: 10px;
     text-decoration: none;
     color: black;
     font-size: 14px;

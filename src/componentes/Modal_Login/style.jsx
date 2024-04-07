@@ -19,6 +19,16 @@ export const Col = styled.div`
   padding: 10px 0;
   text-align: center;
 
+  #InputCPF{
+    width: 93%;
+    height: 34px;
+    line-height: 1.15;
+    padding: 10px 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+  }
+
   .button-9 {
     appearance: button;
     backface-visibility: hidden;
