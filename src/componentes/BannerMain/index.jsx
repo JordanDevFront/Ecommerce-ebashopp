@@ -74,7 +74,7 @@ export function Bnner({ children }) {
         {children.map((item, index) => {
           return (
             <button
-              key={item}
+              key={index}
               className={
                 activeIndex === index
                   ? "container__slider__links-small container__slider__links-small-active"

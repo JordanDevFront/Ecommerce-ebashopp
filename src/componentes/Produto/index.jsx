@@ -82,10 +82,10 @@ export function Produto() {
   return (
     <>
       <Flex>
-        {data.map((item, index) => {
+        {data.map((item) => {
           let ImagemProd = URLIMAGE + item.img;
           return (
-            <Card key={index}>
+            <Card key={item.id_prod}>
               <Controle>
                 <Favorito
                   onClick={() => handleFavoritar(item.id_prod, item.fav_auth)}

@@ -169,7 +169,6 @@ export const Controller = styled.div`
     border-bottom: 10px solid #f0f0f0; /* Define a largura e a cor da borda inferior */
   }
 `;
-
 const slideIn = keyframes`
   from {
     transform: translateX(100%);
@@ -178,7 +177,6 @@ const slideIn = keyframes`
     transform: translateX(0%);
   }
 `;
-
 export const ModalFavorito = styled.div`
 position: fixed;
 right: 0;
@@ -199,7 +197,39 @@ backdrop-filter: blur(10px); /* Efeito de vidro */
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 `;
 
+const VisbibleIn = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+`;
 
+export const ComponentMenuBurger = styled.div`
+position: fixed;
+right: 0;
+transform: translateY(-50%);
+background: #ffe600;
+animation: ${({ isVisible }) =>
+  isVisible
+    ? css`
+        ${VisbibleIn} 0.5s ease-in-out forwards`
+    : 'none'};
+display: ${({ isVisible }) => (isVisible ? 'block' : 'none')};
+
+  z-index: 2;
+  width: 320px;
+  height: 100vw;
+`
+
+export const ComponentPadding = styled.div`
+padding:10px;
+
+label{
+  margin:10px;
+}
+`
 export const Card = styled.div`
 display:flex;
 width: 390px;
@@ -236,3 +266,29 @@ label{
     color: rgba(0, 0, 0, 0.9);
 }
 `
+export const DesktopComponent = styled.div`
+`
+export const MobileComponent = styled.div`
+`
+export const HeaderMobileCSS = styled.div`
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+  padding: 5px;
+  background: #ffe600;
+`;
+export const MenuCoponent = styled.div`
+display:flex;
+justify-content: right;
+`
+
+export const ComponentInfo = styled.div`
+display:flex;
+`
+export const MenuItem = styled.div`
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  .font {
+    font-size: 36px;
+    margin: 10px;
+  }
+`;

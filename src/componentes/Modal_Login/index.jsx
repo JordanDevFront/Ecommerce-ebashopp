@@ -62,13 +62,13 @@ export function ModalLogin() {
       </Col>
 
       <Col>
-        <button class="button-9" role="button" onClick={Logar}>
+        <button className="button-9" role="button" onClick={Logar}>
           {loading}
         </button>
       </Col>
 
       <Col>
-        <button class="button-10" role="button">
+        <button className="button-10" role="button">
           Criar conta
         </button>
       </Col>
