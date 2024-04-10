@@ -3,12 +3,7 @@ import styled from 'styled-components'
 export const Container = styled.div`
 width:100%;
 background: #fff;
-margin-top: 20px;
-
-.titulo{
-    font-size: 24px;
-    padding: 10px;
-}
+margin-top: 88px;
 `
 
 export const Card = styled.div`

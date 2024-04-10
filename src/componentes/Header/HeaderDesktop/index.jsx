@@ -16,12 +16,13 @@ import {
   Imagem,
   Img,
   Inform,
-  DesktopComponent,
+  DesktopComponent
 } from "../style";
 
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 
 import Produtos from "../../../data/produtos"
+import { Search } from "../../Pesquisar";
 
 export function HeaderDesktop() {
   const loggedInUser = localStorage.getItem("usuario");

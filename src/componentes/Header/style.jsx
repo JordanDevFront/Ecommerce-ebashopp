@@ -1,13 +1,18 @@
 import styled, { keyframes,css  } from "styled-components";
 
 export const HeaderCSS = styled.div`
-  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
-  padding: 5px;
-  background: #ffe600;
+box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 5px;
+padding: 5px;
+background: #ffe600;
+position: fixed;
+width: 100%;
+z-index: 2;
+margin: 0;
+top: 0px;
 
   .font-size {
     font-size: 30px;
@@ -148,6 +153,9 @@ export const Controller = styled.div`
     border-radius: 8px;
     background: #fff;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    position:relative;
+    top: 60px;
+    left: 5px;
 
     a {
       text-decoration: none;
@@ -180,6 +188,7 @@ const slideIn = keyframes`
 export const ModalFavorito = styled.div`
 position: fixed;
 right: 0;
+top: 89px;
 transform: translateY(-50%);
 background-color: #ffffffd1;
 padding: 20px;

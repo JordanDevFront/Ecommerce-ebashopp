@@ -12,6 +12,8 @@ display:flex;
 width:50%;
 margin:0 auto;
 padding:10px 50px;
+position: relative;
+top: -35px;
 
 
 background: rgba( 255, 255, 255, 0.35 );
@@ -27,6 +29,7 @@ width:100%;
 padding:10px;
 outline: none;
 border: none;
+background: transparent;
 
 `;
 export const Lupa = styled.div`
