@@ -11,7 +11,7 @@ export const Modal = styled.div`
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 8px;
   position: relative;
-  top: 40px;
+  top: 100px;
 `;
 
 export const Col = styled.div`

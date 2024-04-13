@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import image from "../../imagens/image.jpg";
+import logotipo from "../imagens/logotipo.png";
 import {
   HeaderCSS,
   Logotipo,
@@ -16,12 +17,13 @@ import {
   Imagem,
   Img,
   Inform,
-  DesktopComponent
+  DesktopComponent,
+  ComponentPesquisa,
 } from "../style";
 
 import { CiHeart, CiShoppingCart, CiUser } from "react-icons/ci";
 
-import Produtos from "../../../data/produtos"
+import Produtos from "../../../data/produtos";
 import { Search } from "../../Pesquisar";
 
 export function HeaderDesktop() {
@@ -36,8 +38,8 @@ export function HeaderDesktop() {
     localStorage.removeItem("loggedInUser");
     localStorage.removeItem("usuario");
     localStorage.removeItem("documento");
-      localStorage.removeItem("auth");
-      localStorage.removeItem("token");
+    localStorage.removeItem("auth");
+    localStorage.removeItem("token");
     window.location = "/Login";
   };
 
@@ -50,56 +52,65 @@ export function HeaderDesktop() {
       <DesktopComponent>
         <HeaderCSS>
           <Logotipo>
-            <span>LOGOTIPO</span>
+            <a href="/">
+            <img src={logotipo} />
+            </a>
           </Logotipo>
           {window.location.pathname === "/Login" ? null : (
-            <Info>
-              <>
-                {nomeUser === "" || nomeUser == null ? (
-                  <></>
-                ) : (
-                  <Fav>
-                    <CiHeart
-                      className="font-size"
-                      onClick={() => setModalVisible(!modalVisible)}
-                    />
+            <>
+              <ComponentPesquisa>
+                <Search />
+              </ComponentPesquisa>
+              <Info>
+                <>
+                  {nomeUser === "" || nomeUser == null ? (
+                    <></>
+                  ) : (
+                    <Fav>
+                      <CiHeart
+                        className="font-size"
+                        onClick={() => setModalVisible(!modalVisible)}
+                      />
+                      <span>2</span>
+                    </Fav>
+                  )}
+                  <Cart href="/Carrinho">
+                    <CiShoppingCart className="font-size" />
                     <span>2</span>
-                  </Fav>
-                )}
-                <Cart href="/Carrinho">
-                  <CiShoppingCart className="font-size" />
-                  <span>2</span>
-                </Cart>
-                {nomeUser === "" || nomeUser === null ? (
-                  <>
-                    <BtnCriar>
-                      <a href="#">Criar conta</a>
-                    </BtnCriar>
-                    <BtnEnter>
-                      <a href="/Login">Entrar</a>
-                    </BtnEnter>
-                  </>
-                ) : (
-                  <>
-                    <User>
-                      <a onClick={abrirOuFecharModal}>
-                        <CiUser className="font-size-user" />
-                      </a>
-                    </User>
-                    <NomeUser>
-                      <label>
-                        {" "}
-                        Olá,{" "}
-                        <strong>
-                          <a href="/MeusDados">{nomeUser}</a>
-                        </strong>
-                        !
-                      </label>
-                    </NomeUser>
-                  </>
-                )}
-              </>
-            </Info>
+                  </Cart>
+                  {nomeUser === "" || nomeUser === null ? (
+                    <>
+                      <BtnCriar>
+                        <a href="#">Criar conta</a>
+                      </BtnCriar>
+                      <BtnEnter>
+                        <a href="/Login">Entrar</a>
+                      </BtnEnter>
+                    </>
+                  ) : (
+                    <>
+                      <User>
+                        <a onClick={abrirOuFecharModal}>
+                          <CiUser className="font-size-user" />
+                        </a>
+                      </User>
+                      <NomeUser>
+                        <label>
+                          {" "}
+                          Olá,{" "}
+                          <strong>
+                            <a href="/MeusDados">{nomeUser}</a>
+                          </strong>
+                          !
+                          <br />
+                          <span>Bem vindo(a)!</span>
+                        </label>
+                      </NomeUser>
+                    </>
+                  )}
+                </>
+              </Info>
+            </>
           )}
         </HeaderCSS>
       </DesktopComponent>

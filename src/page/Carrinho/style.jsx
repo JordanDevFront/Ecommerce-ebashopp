@@ -3,6 +3,8 @@ import styled, { keyframes, css } from "styled-components";
 export const Container = styled.div`
   width: 100%;
   background: #fff;
+  position: relative;
+  top: 91px;
 `;
 
 export const Flex = styled.div`
@@ -13,9 +15,10 @@ export const Flex = styled.div`
 export const ListItem = styled.div`
   width: 70%;
   height: 400px;
-  background: #f2f2f2f2;
+  background: #f7f7f7f2;
   margin: 5px;
   border-radius: 8px;
+  
 `;
 
 export const InfoPage = styled.div`
@@ -56,7 +59,7 @@ export const Img = styled.img`
 `;
 
 export const ComponenteDescricao = styled.div`
-width: 100%;
+  width: 100%;
   height: 120px;
   padding: 5px;
 `;
@@ -112,8 +115,51 @@ export const BotaoExcluir = styled.div`
   background: #ededed;
 `;
 
-export const   ComponenteDetalhes = styled.div``
-export const   ComponenteDetalheDaCompra = styled.span``
-export const   Produtos = styled.div``
+export const ComponenteDetalhes = styled.div`
+margin:10px;
+`;
+export const ComponenteDetalheDaCompra = styled.span``;
+export const ComponenteBotaoFinalizar = styled.div``;
+export const BotaoFinalizar = styled.div`
+padding: 10px 20px;
+text-align: center;
+border-radius: 4px;
+margin: 10px;
+background: #313232;
+color: #fff;
+box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+cursor: pointer;
+`;
 
+export const Produtos = styled.div`
+width:100%;
+`;
+export const ComponenteCol = styled.div`
+display:flex;
+margin:10px;
 
+`
+export const Col = styled.div`
+width:100%;
+
+span{
+  font-size: 20px;
+font-weight: 700;
+color: #313232;
+
+}
+`
+export const ColItem = styled.div`
+width:100%;
+text-align: right;
+font-size: 20px;
+font-weight: 700;
+color: #313232;
+`
+
+export const ColFrete = styled.div`
+width:100%;
+font-size: 16px;
+font-weight: 300;
+color: #626262;
+`

@@ -1,7 +1,6 @@
 import styled, { keyframes,css  } from "styled-components";
 
 export const HeaderCSS = styled.div`
-box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 display: flex;
 flex-wrap: wrap;
 justify-content: center;
@@ -25,21 +24,34 @@ top: 0px;
   }
 `;
 export const Logotipo = styled.div`
-  width: 70%;
+  width: 300px;
+  text-align:center;
+
+  a{
+    img{
+      width:80%;
+      height: 50px;
+      position: relative;
+      top: 15px;
+    }
+  }
 `;
 export const Info = styled.div`
-  width: 20%;
+  width: 300px;
   display: flex;
   position: relative;
   top: 0;
-  /**  top: 20px;*/
   z-index: 2;
 
   /**background: #ffffffd1;*/
-  border-radius: 50px;
   padding: 10px 20px;
   /**box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;*/
 `;
+
+export const ComponentPesquisa = styled.div`
+width: 650px;
+height: 80px;
+`
 export const Cart = styled.a`
   width: 40px;
   height: 40px;

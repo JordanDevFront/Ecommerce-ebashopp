@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Flex,
@@ -22,7 +22,13 @@ import {
   BotaoExcluir,
   ComponenteDetalhes,
   ComponenteDetalheDaCompra,
-  Produtos
+  Produtos,
+  ComponenteBotaoFinalizar,
+  BotaoFinalizar,
+  ComponenteCol,
+  Col,
+  ColFrete,
+  ColItem,
 } from "./style";
 
 import Imagem from "../../imagens/image.jpg";
@@ -30,30 +36,34 @@ import Imagem from "../../imagens/image.jpg";
 function Carrinho() {
   const [quantidade, setQuantidade] = useState(1);
   const [valorTotal, setValorTotal] = useState(0);
-  
+  const [valueBotaoFinalizar, setValueBotaoFinalizar] = useState("Finalizar")
+
   const [ArrayProd, setArrayProd] = useState([
     {
-      id:1,
-      titulo:"Panela Vermelha de Aluminio",
-      preco: 40.00,
-      precoAlt: 40.00
+      id: 1,
+      titulo: "Panela Vermelha de Aluminio",
+      preco: 40.0,
+      precoAlt: 40.0,
     },
     {
-      id:2,
-      titulo:"Colher Vermelha de Aluminio",
-      preco: 4.00,
-      precoAlt: 4.00
-    }
+      id: 2,
+      titulo: "Colher Vermelha de Aluminio",
+      preco: 4.0,
+      precoAlt: 4.0,
+    },
   ]);
 
   useEffect(() => {
-    const total = ArrayProd.reduce((acc, item) => acc + (item.precoAlt * quantidade), 0);
+    const total = ArrayProd.reduce(
+      (acc, item) => acc + item.precoAlt * quantidade,
+      0
+    );
     setValorTotal(total);
   }, [ArrayProd, quantidade]);
 
   const aumentarQuantidade = (id) => {
-    setArrayProd(prevArrayProd => {
-      return prevArrayProd.map(item => {
+    setArrayProd((prevArrayProd) => {
+      return prevArrayProd.map((item) => {
         if (item.id === id) {
           const novaQuantidade = item.quantidade ? item.quantidade + 1 : 1;
           const novoPreco = novaQuantidade * item.preco;
@@ -63,10 +73,10 @@ function Carrinho() {
       });
     });
   };
-  
+
   const diminuirQuantidade = async (id) => {
-    setArrayProd(prevArrayProd => {
-      return prevArrayProd.map(item => {
+    setArrayProd((prevArrayProd) => {
+      return prevArrayProd.map((item) => {
         if (item.id === id) {
           const novaQuantidade = item.quantidade ? item.quantidade - 1 : 1;
           const novoPreco = novaQuantidade * item.preco;
@@ -76,6 +86,11 @@ function Carrinho() {
       });
     });
   };
+
+  const FinalizarCompra = async () => {
+    setValueBotaoFinalizar("Finaliando...")
+
+  }
 
   return (
     <>
@@ -99,13 +114,17 @@ function Carrinho() {
                   <ComponenteControlador>
                     <ComponenteModal>
                       <ComponenteBotao>
-                        <BotaoMenor onClick={() => diminuirQuantidade(item.id)}>-</BotaoMenor>
+                        <BotaoMenor onClick={() => diminuirQuantidade(item.id)}>
+                          -
+                        </BotaoMenor>
                       </ComponenteBotao>
                       <ComponenteQuantidade>
                         <Quantidade>{item.quantidade || 1}</Quantidade>
                       </ComponenteQuantidade>
                       <ComponenteBotao>
-                        <BotaoMais onClick={() => aumentarQuantidade(item.id)}>+</BotaoMais>
+                        <BotaoMais onClick={() => aumentarQuantidade(item.id)}>
+                          +
+                        </BotaoMais>
                       </ComponenteBotao>
                     </ComponenteModal>
                   </ComponenteControlador>
@@ -121,14 +140,32 @@ function Carrinho() {
           <InfoPage>
             <ComponenteDetalhes>
               <ComponenteDetalheDaCompra>
-                Detalhe da compra
+                Detalhes da compra
               </ComponenteDetalheDaCompra>
 
               <Produtos>
-                <label>Produtos: 10 <span>{"R$" + valorTotal.toFixed(2)}</span></label>
+                <ComponenteCol>
+                  <ColFrete>
+                    <span>Frete:</span>{" "}
+                  </ColFrete>
+                  <ColItem>
+                    <span>R$14,90</span>
+                  </ColItem>
+                </ComponenteCol>
+                <ComponenteCol>
+                  <Col>
+                    <span>Total:</span>{" "}
+                  </Col>
+                  <ColItem>
+                    <span>{"R$" + valorTotal.toFixed(2)}</span>
+                  </ColItem>
+                </ComponenteCol>
               </Produtos>
             </ComponenteDetalhes>
-            
+
+            <ComponenteBotaoFinalizar>
+              <BotaoFinalizar onClick={FinalizarCompra}>{valueBotaoFinalizar}</BotaoFinalizar>
+            </ComponenteBotaoFinalizar>
           </InfoPage>
         </Flex>
       </Container>

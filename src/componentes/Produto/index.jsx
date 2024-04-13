@@ -48,6 +48,8 @@ export function Produto() {
       const data = await response.json();
       if (response.status === 200) {
         setDados(data);
+        const produtos = data.filter(produtos = produtos.id_categoria === 1)
+        console.log(produtos)
       }
     } catch (error) {
       console.error("Erro:", error.message);
@@ -83,7 +85,7 @@ export function Produto() {
     <>
       <Flex>
         {data.map((item) => {
-          let ImagemProd = URLIMAGE + item.img;
+          let ImagemProd = item.img; //URLIMAGE + 
           return (
             <Card key={item.id_prod}>
               <Controle>
@@ -100,9 +102,9 @@ export function Produto() {
 
               <Slide>
                 {item.img === "" || item.img === null ? (
-                  <Imagem src={ImagemProd} alt="img_produto" />
-                ) : (
                   <Imagem src={ImagemError} alt="img_produto_ERROR" />
+                ) : (
+                  <Imagem src={item.img} alt="img_produto" />
                 )}
               </Slide>
               
@@ -117,12 +119,12 @@ export function Produto() {
                 <ComponentePreco>
                   <ComponentePrecoAntigo>R$255,90</ComponentePrecoAntigo>
                   <Espaco />
-                  <ComponentePrecoProd>{item.preco}</ComponentePrecoProd>
+                  <ComponentePrecoProd>R${item.preco}</ComponentePrecoProd>
                 </ComponentePreco>
 
                 <ComponenteParcelamento>
                   <ComponenteDadosParcelamento>
-                    {item.qnt_parcelas}x {item.valor_parcela} {semJuros}
+                    {item.qnt_parcelas}x R${item.valor_parcela} {semJuros}
                   </ComponenteDadosParcelamento>
                 </ComponenteParcelamento>
               </Info>
