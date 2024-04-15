@@ -18,7 +18,6 @@ export const ListItem = styled.div`
   background: #f7f7f7f2;
   margin: 5px;
   border-radius: 8px;
-  
 `;
 
 export const InfoPage = styled.div`
@@ -82,11 +81,13 @@ export const ComponenteControlador = styled.div`
   width: 82px;
 `;
 export const ComponenteBotao = styled.div`
-  width: 20px;
+  width: 30px;
   height: 20px;
-  border: 1px solid #999999;
-  background: #d1d1d1;
+  border: 1px solid #ffffff;
+  background: #313232;
   text-align: center;
+  color: #fff;
+  border-radius: 4px;
 `;
 export const BotaoMenor = styled.div`
   cursor: pointer;
@@ -116,50 +117,85 @@ export const BotaoExcluir = styled.div`
 `;
 
 export const ComponenteDetalhes = styled.div`
-margin:10px;
+  margin: 10px;
 `;
 export const ComponenteDetalheDaCompra = styled.span``;
 export const ComponenteBotaoFinalizar = styled.div``;
 export const BotaoFinalizar = styled.div`
-padding: 10px 20px;
-text-align: center;
-border-radius: 4px;
-margin: 10px;
-background: #313232;
-color: #fff;
-box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-cursor: pointer;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 10px;
+  background: #313232;
+  color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  cursor: pointer;
 `;
 
 export const Produtos = styled.div`
-width:100%;
+  width: 100%;
 `;
 export const ComponenteCol = styled.div`
-display:flex;
-margin:10px;
-
-`
+  display: flex;
+      margin: 10px 0;
+`;
 export const Col = styled.div`
-width:100%;
+  width: 100%;
 
-span{
-  font-size: 20px;
-font-weight: 700;
-color: #313232;
-
-}
-`
+  span {
+    font-size: 20px;
+    font-weight: 700;
+    color: #313232;
+  }
+`;
 export const ColItem = styled.div`
-width:100%;
-text-align: right;
-font-size: 20px;
-font-weight: 700;
-color: #313232;
+  width: 100%;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 700;
+  color: #313232;
+`;
+
+export const ColFreteValor = styled.div`
+width: 100%;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 300;
+  color: #313232;
 `
 
 export const ColFrete = styled.div`
-width:100%;
-font-size: 16px;
-font-weight: 300;
-color: #626262;
-`
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #626262;
+`;
+
+export const ColFormPagamento = styled.div`
+  width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  color: #626262;
+
+  select{
+    border: none;
+    padding: 10px;
+    width: 100%;
+    margin: 10px 0;
+    border-radius: 4px;
+  }
+`;
+
+export const ImgeFormDePagamento = styled.div`
+  width: 100px;
+  height: 50px;
+  margin: 10px 0px;
+  float: right;
+
+  img {
+    width: 100%;
+    height: auto;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 4px;
+  }
+`;

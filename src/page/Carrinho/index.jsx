@@ -28,15 +28,26 @@ import {
   ComponenteCol,
   Col,
   ColFrete,
+  ColFormPagamento,
   ColItem,
+  ImgeFormDePagamento,
+  ColFreteValor
 } from "./style";
 
 import Imagem from "../../imagens/image.jpg";
 
+import Pix from "./imagem/pix.jpg";
+import Boleto from "./imagem/boleto.jpg";
+
+import Nubank from "./imagem/creditoNubank.jpg";
+import Santander from "./imagem/santander.png"
+
 function Carrinho() {
   const [quantidade, setQuantidade] = useState(1);
   const [valorTotal, setValorTotal] = useState(0);
-  const [valueBotaoFinalizar, setValueBotaoFinalizar] = useState("Finalizar")
+  const [valueBotaoFinalizar, setValueBotaoFinalizar] = useState("Finalizar");
+  const [value, setValue] = useState("");
+  const [ImagemSelo, setImagemSelo] = useState("");
 
   const [ArrayProd, setArrayProd] = useState([
     {
@@ -92,6 +103,35 @@ function Carrinho() {
 
   }
 
+  const onChange = (event) => {
+    const value = event.target.value;
+    if (value === "credito nubank") {
+      console.log("vc escolheu credito nubank");
+      setImagemSelo(Nubank);
+    }
+    if (value === "credito santander") {
+      console.log("vc escolheu credito santander");
+      setImagemSelo(Santander);
+    }
+
+    if (value === "debito nubank") {
+      console.log("vc escolheu debito nubank");
+      setImagemSelo(Nubank);
+    }
+    if (value === "debito santander") {
+      console.log("vc escolheu debito santander");
+      setImagemSelo(Santander);
+    }
+    if (value === "pix") {
+      console.log("vc escolheu Pix");
+      setImagemSelo(Pix);
+    }
+    if (value === "boleto") {
+      console.log("vc escolheu boleto");
+      setImagemSelo(Boleto);
+    }
+  };
+
   return (
     <>
       <Container>
@@ -145,12 +185,32 @@ function Carrinho() {
 
               <Produtos>
                 <ComponenteCol>
+                  <ColFormPagamento>
+                    <span>Forma de pagamento:</span> <br />
+                    <select name="example" onChange={onChange}>
+                      <option value="" defaultValue disabled>Escolha uma opção</option>
+                      <option value="credito nubank">Crédito Nubank</option>
+                      <option value="credito santander">
+                        Crédito Santander
+                      </option>
+                      <option value="debito nubank">Débito Nubank</option>
+                      <option value="debito santander">Débito Santander</option>
+
+                      <option value="pix">Pix</option>
+                      <option value="boleto">Boleto</option>
+                    </select>
+                    <ImgeFormDePagamento>
+                      <img src={ImagemSelo} />
+                    </ImgeFormDePagamento>
+                  </ColFormPagamento>
+                </ComponenteCol>
+                <ComponenteCol>
                   <ColFrete>
                     <span>Frete:</span>{" "}
                   </ColFrete>
-                  <ColItem>
+                  <ColFreteValor>
                     <span>R$14,90</span>
-                  </ColItem>
+                  </ColFreteValor>
                 </ComponenteCol>
                 <ComponenteCol>
                   <Col>
@@ -164,7 +224,9 @@ function Carrinho() {
             </ComponenteDetalhes>
 
             <ComponenteBotaoFinalizar>
-              <BotaoFinalizar onClick={FinalizarCompra}>{valueBotaoFinalizar}</BotaoFinalizar>
+              <BotaoFinalizar onClick={FinalizarCompra}>
+                {valueBotaoFinalizar}
+              </BotaoFinalizar>
             </ComponenteBotaoFinalizar>
           </InfoPage>
         </Flex>
