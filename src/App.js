@@ -6,7 +6,9 @@ import { Header } from "./componentes/Header";
 const App = () => {
   return (
     <div>
-      <Header />
+      {window.location.pathname === "/Login" ? null : (
+        <Header />
+      )}
 
       <RouterComponent />
     </div>

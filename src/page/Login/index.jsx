@@ -1,20 +1,26 @@
-import React, { useState } from "react";
-import Logo from "../../imagens/logotipo.png";
+import React from "react";
+import Logo from "../../imagens/logoNovo.png";
 import {
-Container
+  Container,
+  ComponentDark,
+  ComponentWhite,
+  ComponentLogotipoLogin,
+  ComponentImage,
 } from "./style";
-import { ModalLogin } from "../../componentes/Modal_Login";
-
-
+import { ModalLogin } from "../../componentes/ModalLogin";
 
 function Login() {
-
-  const [nomeUser, setNomeUser] = useState("");
-
   return (
     <>
       <Container>
-        <ModalLogin />
+        <ComponentDark>
+          <ComponentLogotipoLogin>
+            <ComponentImage src={Logo} />
+          </ComponentLogotipoLogin>
+        </ComponentDark>
+        <ComponentWhite>
+          <ModalLogin />
+        </ComponentWhite>
       </Container>
     </>
   );

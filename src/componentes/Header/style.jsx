@@ -64,7 +64,7 @@ export const Cart = styled.a`
   align-items: center;
   cursor: pointer;
   text-decoration: none;
-    color: black;
+    color: #001F3F;
 
   span {
     width: 20px;
@@ -76,7 +76,6 @@ export const Cart = styled.a`
     font-size: 12px;
     color: #fff;
     text-align: center;
-    color:#fff;
   }
 `;
 export const Fav = styled.div`
@@ -116,7 +115,7 @@ export const User = styled.div`
   cursor: pointer;
 
   a {
-    color: black;
+    color: #001F3F;
   }
 `;
 export const BtnEnter = styled.div`
@@ -143,13 +142,13 @@ export const NomeUser = styled.div`
     position: relative;
     top: 10px;
     text-decoration: none;
-    color: black;
+    color: #001F3F;
     font-size: 14px;
   }
 
   a {
     text-decoration: none;
-    color: black;
+    color: #001F3F;
   }
 `;
 export const Controller = styled.div`

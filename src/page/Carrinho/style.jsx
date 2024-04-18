@@ -18,6 +18,7 @@ export const ListItem = styled.div`
   background: #f7f7f7f2;
   margin: 5px;
   border-radius: 8px;
+  color: #001F3F;
 `;
 
 export const InfoPage = styled.div`
@@ -84,7 +85,7 @@ export const ComponenteBotao = styled.div`
   width: 30px;
   height: 20px;
   border: 1px solid #ffffff;
-  background: #313232;
+  background: #001F3F;
   text-align: center;
   color: #fff;
   border-radius: 4px;
@@ -126,7 +127,7 @@ export const BotaoFinalizar = styled.div`
   text-align: center;
   border-radius: 4px;
   margin: 10px;
-  background: #313232;
+  background: #001F3F;
   color: #fff;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   cursor: pointer;
@@ -137,7 +138,7 @@ export const Produtos = styled.div`
 `;
 export const ComponenteCol = styled.div`
   display: flex;
-      margin: 10px 0;
+  margin: 10px 0;
 `;
 export const Col = styled.div`
   width: 100%;
@@ -145,7 +146,7 @@ export const Col = styled.div`
   span {
     font-size: 20px;
     font-weight: 700;
-    color: #313232;
+    color: #001F3F;
   }
 `;
 export const ColItem = styled.div`
@@ -153,16 +154,16 @@ export const ColItem = styled.div`
   text-align: right;
   font-size: 20px;
   font-weight: 700;
-  color: #313232;
+  color: #001F3F;
 `;
 
 export const ColFreteValor = styled.div`
-width: 100%;
+  width: 100%;
   text-align: right;
   font-size: 14px;
   font-weight: 300;
   color: #313232;
-`
+`;
 
 export const ColFrete = styled.div`
   width: 100%;
@@ -177,7 +178,7 @@ export const ColFormPagamento = styled.div`
   font-weight: 300;
   color: #626262;
 
-  select{
+  select {
     border: none;
     padding: 10px;
     width: 100%;
