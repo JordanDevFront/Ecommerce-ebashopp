@@ -66,7 +66,7 @@ export const Botao = styled.div`
 
   font-family: inherit;
   font-weight: 700;
-  cursor:pointer;
+  cursor: pointer;
 `;
 export const ComponentYeloow = styled.div`
   width: 100%;
@@ -87,7 +87,7 @@ export const ComponentBollDark = styled.div`
 export const ComponentBolYellow = styled.div`
   width: 180px;
   height: 180px;
-  background: #FFE600;
+  background: #ffe600;
 
   border-radius: 180px;
   margin: 90px 0px;
@@ -107,78 +107,44 @@ export const ComponentModalVidro = styled.div`
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   backdrop-filter: blur(13.5px);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  z-index:2;
+  z-index: 2;
 `;
 export const ComponentFormLogin = styled.div`
   padding: 20px;
 `;
 export const ComponentFormCadastro = styled.div`
-padding: 0px 20px 0;
-`
+  padding: 0px 20px 0;
+`;
 export const CamponentCamp = styled.div`
   position: relative;
   top: 40px;
   left: 20px;
 
-  label{
+  label {
     color: #001f3f;
     font-weight: 300;
-    font-size:14px;
+    font-size: 14px;
   }
 
   span {
     color: #001f3f;
     font-weight: 700;
   }
-  .input{
-    margin-top:5px;
+  .input {
+    margin-top: 5px;
     border: none;
-    padding:10px 0;
-    width:230px;
+    padding: 10px 0;
+    width: 230px;
     background: transparent;
-    font-size:20px;
+    font-size: 20px;
     font-weight: 300;
-    color: #001F3F;
+    color: #001f3f;
   }
 
   input::placeholder {
-    color: #001F3F;
+    color: #001f3f;
   }
-  
 `;
-export const BotaoEntrar = styled.div`
-color: #FFE600;
-background: #001f3f;
-  border-radius: 8px;
-  padding: 15px 30px;
-  text-align: center;
-  font-weight: 600;
-  width: 150px;
-
-  font-family: inherit;
-  font-weight: 700;
-`
-
-export const BotaoEnviar = styled.div`
-color: #FFE600;
-background: #001f3f;
-  border-radius: 8px;
-  padding: 15px 30px;
-  text-align: center;
-  font-weight: 600;
-  width: 150px;
-
-  font-family: inherit;
-  font-weight: 700;
-  position:relative;
-  top: 10px;
-`
-export const ComponentBotaoEntrar = styled.div`
-padding:20px;
-position:relative;
-top: 88px;
-cursor:pointer;
-`
 export const MsgError = styled.div`
   text-align: left;
   position: relative;
@@ -190,3 +156,50 @@ export const MsgError = styled.div`
     color: #e54141;
   }
 `;
+
+
+
+
+export const CamponentBotaoPost = styled.div`
+  color: #ffe600;
+  background: #001f3f;
+  border-radius: 8px;
+  padding: 5px 30px;
+  text-align: center;
+  font-weight: 600;
+  width: 150px;
+
+  font-family: inherit;
+  font-weight: 700;
+  position: relative;
+  top: -58px;
+`;
+
+export const CamponentBotaoPostLogin = styled.div`
+  color: #ffe600;
+  background: #001f3f;
+  border-radius: 8px;
+  padding: 5px 30px;
+  text-align: center;
+  font-weight: 600;
+  width: 150px;
+
+  font-family: inherit;
+  font-weight: 700;
+  position: relative;
+  top: 0;
+`;
+export const ComponentBotaoEnviar = styled.div`
+padding: 20px;
+position: relative;
+top: 88px;
+cursor: pointer;
+
+.fontSize {
+  font-size: 35px;
+}
+span {
+  position: relative;
+  top: -10px;
+}
+`

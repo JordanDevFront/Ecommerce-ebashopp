@@ -12,15 +12,16 @@ import {
   ComponentFormLogin,
   ComponentFormCadastro,
   CamponentCamp,
-  ComponentBotaoEntrar,
-  BotaoEntrar,
+  ComponentBotaoEnviar,
+  CamponentBotaoPost,
+  CamponentBotaoPostLogin,
   ComponentBolYellow,
   MsgError,
-  BotaoEnviar,
 } from "./styleleGlobal";
 
 import InputMask from "react-input-mask";
 import CryptoJS from "crypto-js";
+import { CiLogin, CiSaveUp2 } from "react-icons/ci";
 
 export function ModalLogin() {
   const [arrayUsers, setArrayUsers] = useState([
@@ -97,6 +98,107 @@ export function ModalLogin() {
     }
   };
 
+  const FormularioCadastro = () => {
+    return (
+      <ComponentFormCadastro>
+        <CamponentCamp>
+          <span>Usuário</span>
+          <br />
+          <InputMask
+            mask="999.999.999-99"
+            type="text"
+            placeholder="000.000.000-00"
+            className="input"
+            id="InputCPF"
+          />
+        </CamponentCamp>
+
+        <CamponentCamp>
+          <span>Email</span>
+          <br />
+          <input
+            type="text"
+            placeholder="algumaCoisa@gmail.com"
+            className="input"
+          />
+        </CamponentCamp>
+
+        <CamponentCamp>
+          <span>Senha</span>
+          <br />
+          <input type="password" placeholder="*******" className="input" />
+          <MsgError>
+            <span>{mensagemError}</span>
+          </MsgError>
+        </CamponentCamp>
+
+        <CamponentCamp>
+          <span>Confirmação de senha</span>
+          <br />
+          <input type="password" placeholder="*******" className="input" />
+          <MsgError>
+            <span>{mensagemError}</span>
+          </MsgError>
+        </CamponentCamp>
+
+        <ComponentBotaoEnviar>
+          <CamponentBotaoPost onClick={Enviar}>
+            <CiSaveUp2 className="fontSize" /> <span>{textoBtnEnviar}</span>
+          </CamponentBotaoPost>
+        </ComponentBotaoEnviar>
+      </ComponentFormCadastro>
+    );
+  };
+
+  const FormularioLogin = () => {
+    return (
+        <>
+      <ComponentFormLogin>
+        <CamponentCamp>
+          <span>Usuário</span>
+          <br />
+          <InputMask
+            mask="999.999.999-99"
+            type="text"
+            placeholder="000.000.000-00"
+            className="input"
+            value={cpf}
+            onChange={handleChangeUserCPF}
+            id="InputCPF"
+          />
+        </CamponentCamp>
+        <br />
+        <CamponentCamp>
+          <span>Senha</span>
+          <br />
+          <input
+            type="password"
+            placeholder="*******"
+            className="input"
+            value={senha}
+            onChange={handleChangeUserSenha}
+          />
+          <MsgError>
+            <span>{mensagemError}</span>
+          </MsgError>
+        </CamponentCamp>
+
+        <CamponentCamp>
+          <label>Esqueceu sua senha?</label>
+          <br />
+          <span>clique aqui</span>
+        </CamponentCamp>
+
+        <ComponentBotaoEnviar>
+          <CamponentBotaoPostLogin onClick={Logar}>
+            <CiLogin className="fontSize" /> <span>{loading}</span>
+          </CamponentBotaoPostLogin>
+        </ComponentBotaoEnviar>
+      </ComponentFormLogin>
+</>
+    );
+  };
+
   const Enviar = () => {
     setTextoBtnEnviar("Enviando...");
     setTimeout(() => {
@@ -128,96 +230,8 @@ export function ModalLogin() {
       <ComponentBollDark />
 
       <ComponentModalVidro>
-        {login && (
-          <ComponentFormLogin>
-            <CamponentCamp>
-              <span>Usuário</span>
-              <br />
-              <InputMask
-                mask="999.999.999-99"
-                type="text"
-                placeholder="000.000.000-00"
-                className="input"
-                value={cpf}
-                onChange={handleChangeUserCPF}
-                id="InputCPF"
-              />
-            </CamponentCamp>
-            <br />
-            <CamponentCamp>
-              <span>Senha</span>
-              <br />
-              <input
-                type="password"
-                placeholder="*******"
-                className="input"
-                value={senha}
-                onChange={handleChangeUserSenha}
-              />
-              <MsgError>
-                <span>{mensagemError}</span>
-              </MsgError>
-            </CamponentCamp>
-
-            <CamponentCamp>
-              <label>Esqueceu sua senha?</label>
-              <br />
-              <span>clique aqui</span>
-            </CamponentCamp>
-
-            <ComponentBotaoEntrar>
-              <BotaoEntrar onClick={Logar}>{loading}</BotaoEntrar>
-            </ComponentBotaoEntrar>
-          </ComponentFormLogin>
-        )}
-
-        {modalAberto && (
-          <ComponentFormCadastro>
-            <CamponentCamp>
-              <span>Usuário</span>
-              <br />
-              <InputMask
-                mask="999.999.999-99"
-                type="text"
-                placeholder="000.000.000-00"
-                className="input"
-                id="InputCPF"
-              />
-            </CamponentCamp>
-
-            <CamponentCamp>
-              <span>Email</span>
-              <br />
-              <input
-                type="text"
-                placeholder="algumaCoisa@gmail.com"
-                className="input"
-              />
-            </CamponentCamp>
-
-            <CamponentCamp>
-              <span>Senha</span>
-              <br />
-              <input type="password" placeholder="*******" className="input" />
-              <MsgError>
-                <span>{mensagemError}</span>
-              </MsgError>
-            </CamponentCamp>
-
-            <CamponentCamp>
-              <span>Confirmação de senha</span>
-              <br />
-              <input type="password" placeholder="*******" className="input" />
-              <MsgError>
-                <span>{mensagemError}</span>
-              </MsgError>
-            </CamponentCamp>
-
-            <CamponentCamp>
-              <BotaoEnviar onClick={Enviar}>{textoBtnEnviar}</BotaoEnviar>
-            </CamponentCamp>
-          </ComponentFormCadastro>
-        )}
+        {login && <FormularioLogin />}
+        {modalAberto && <FormularioCadastro />}
       </ComponentModalVidro>
 
       <ComponentBolYellow />
